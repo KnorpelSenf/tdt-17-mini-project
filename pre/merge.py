@@ -15,7 +15,7 @@ index = 0
 for vid in vids:
     i = os.path.join(vid, 'images')
     l = os.path.join(vid, 'labels')
-    for [image, label] in zip(os.listdir(i),  sorted(os.listdir(l))):
+    for [image, label] in zip(sorted(os.listdir(i)),  sorted(os.listdir(l))):
         from_i = os.path.join(i, image)
         from_l = os.path.join(l, label)
         target_i = os.path.join('data/images', str(index) + '-' + image)
