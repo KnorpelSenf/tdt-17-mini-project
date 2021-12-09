@@ -1,0 +1,8 @@
+path: ~/git/tdt17/data # dataset root dir
+
+train: train
+val: test
+
+nc: 8  # number of classes
+names: [ 'cat', 'truck', 'bus', 'motorcycle', 'bicycle', 'scooter', 'person', 'rider' ]  # class names
+
