@@ -13,6 +13,11 @@ def imgseries(videofile, output, fps):
         .output(os.path.join(output, 'frame_%06d.jpg'))
         .run()
     )
+    files = os.listdir(output)
+    for f in range(len(files)):
+        old = 'frame_%06d.jpg' % (f+1)
+        new = 'frame_%06d.jpg' % f
+        os.rename(os.path.join(output, old), os.path.join(output, new))
     print('Done.', output)
 
 
