@@ -4,7 +4,7 @@ set -e
 
 unzip data.zip
 
-for vid in $(echo data/LiDAR-videos/*Ano); do
+for vid in $(echo data/LiDAR-videos/*); do
     cd $vid
     unzip *yolo.zip
     mv obj_train_data labels
@@ -17,5 +17,5 @@ for vid in $(echo data/LiDAR-videos/*); do
     ./pre/imgseries.py $vid/*ient.avi -o $vid/images
 done
 
-mkdir -p data/train/{labels,images} data/test/images
+mkdir -p data/train/{labels,images} data/test/{images,labels}
 ./pre/merge.py
