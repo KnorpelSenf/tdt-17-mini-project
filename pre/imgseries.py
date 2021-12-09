@@ -10,7 +10,7 @@ def imgseries(videofile, output, fps):
     print('Extracting frames from', videofile, 'to directory', output)
     (
         ffmpeg.input(videofile)
-        .output(os.path.join(output, 'frame-%06d.jpg'))
+        .output(os.path.join(output, 'frame_%06d.jpg'))
         .run()
     )
     print('Done.', output)
