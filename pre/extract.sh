@@ -17,5 +17,5 @@ for vid in $(echo data/LiDAR-videos/*); do
     ./pre/imgseries.py $vid/*ient.avi -o $vid/images
 done
 
-mkdir -p data/train/{labels,images} data/train/images
+mkdir -p data/train/{labels,images} data/test/images
 ./pre/merge.py
