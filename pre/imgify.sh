@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Run from repo root
 
