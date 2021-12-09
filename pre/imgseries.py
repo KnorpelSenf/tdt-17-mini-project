@@ -5,7 +5,7 @@ import os
 import ffmpeg
 
 
-def imgseries(videofile, output, fps):
+def imgseries(videofile, output):
 
     print('Extracting frames from', videofile, 'to directory', output)
     (
@@ -13,10 +13,10 @@ def imgseries(videofile, output, fps):
         .output(os.path.join(output, 'frame_%06d.jpg'))
         .run()
     )
-    files = os.listdir(output)
-    for f in range(len(files)):
+    for f in range(len(os.listdir(output))):
         old = 'frame_%06d.jpg' % (f+1)
         new = 'frame_%06d.jpg' % f
+        print('moving from', os.path.join(output, old), 'to', os.path.join(output, new))
         os.rename(os.path.join(output, old), os.path.join(output, new))
     print('Done.', output)
 
@@ -28,8 +28,6 @@ if __name__ == '__main__':
 
     parser.add_argument('videofile', help='Video file')
     parser.add_argument('-o', '--output', help='Output directory')
-    parser.add_argument('--fps', default='1/2',
-                        help='Frames extracted per second of video. Use 10 or 1/2 (default) or 0.3 or the like')
 
     args = parser.parse_args()
 
@@ -42,4 +40,4 @@ if __name__ == '__main__':
 
     print(args)
 
-    imgseries(args.videofile, args.output, args.fps)
+    imgseries(args.videofile, args.output)
